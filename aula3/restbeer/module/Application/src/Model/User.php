@@ -4,12 +4,11 @@ namespace Application\Model;
 
 use Zend\InputFilter\InputFilter;
 
-class Beer
+class User
 {
     public $id;
     public $name;
-    public $style;
-    public $img;
+    public $password;
 
     /**
      * Configura os filtros dos campos da classe
@@ -19,7 +18,6 @@ class Beer
     public function getInputFilter()
     {
         $inputFilter = new InputFilter();
-
         $inputFilter->add(array(
                 'name' => 'id',
                 'required' => false,
@@ -27,7 +25,6 @@ class Beer
                         array('name' => 'Int'),
                 ),
         ));
-
         $inputFilter->add(array(
                 'name' => 'name',
                 'required' => true,
@@ -46,9 +43,8 @@ class Beer
                         ),
                 ),
         ));
-
         $inputFilter->add(array(
-                'name' => 'style',
+                'name' => 'password',
                 'required' => true,
                 'filters' => array(
                         array('name' => 'StripTags'),
@@ -63,15 +59,6 @@ class Beer
                                         'max' => 100,
                                 ),
                         ),
-                ),
-        ));
-
-        $inputFilter->add(array(
-                'name' => 'img',
-                'required' => false,
-                'filters' => array(
-                        array('name' => 'StripTags'),
-                        array('name' => 'StringTrim'),
                 ),
         ));
 

@@ -2,7 +2,6 @@
 
 namespace Application\Form;
 
-use Zend\Form\Element;
 use Zend\Form\Form;
 
 class Login extends Form
